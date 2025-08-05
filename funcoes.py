@@ -10,7 +10,7 @@ import datetime as dt
 from email.message import EmailMessage
 import smtplib
 
-email = "X"  # Coloque aqui o E-mail do remetente
+email = "X"  # Substitua pelo E-mail do remetente
 senhaapp = "X"    # Senha criada na conta google para usar em aplicações
 
 
@@ -131,15 +131,16 @@ def cobrarDevedores(tabela, destinatario, dataLimite, nf, valor):
     msg['To'] = email_destinatario                 
     msg.set_content(f'''     
     Prezado(a) Senhor(a),
-    Conforme nossos registros, identificamos que a Nota Fiscal {nf}, encontra-se vencida até a presente data. Solicitamos, gentilmente,
-    a verificação dessa pendência e, se procedente, a regularização do pagamento no menor prazo possível.
-    Detalhes da Nota Fiscal:
+    Conforme nossos registros, identificamos que a Nota Fiscal {nf} encontra-se em aberto até a presente data. Solicitamos, por gentileza,
+    a verificação dessa pendência e, se confirmada, a regularização do pagamento no menor prazo possível.
+
+    Detalhes da Nota Fiscal
     Número da NF: {nf}
     Valor: R$ {valor}
     Data de Vencimento: {dataLimite}
 
-    Caso o pagamento já tenha sido efetuado, por favor, desconsidere esta mensagem. Em caso de dúvidas ou divergências, estamos
-    à disposição para esclarecimentos.
+    Caso o pagamento já tenha sido realizado, por favor, desconsidere esta mensagem. Em caso de dúvidas ou divergências, nossa equipe está 
+    à disposição para prestar os devidos esclarecimentos.
 
     Agradecemos pela atenção e colaboração.
 
@@ -181,7 +182,7 @@ def abrirJanelaEmailVencidos(janela, dadosDataFrame, tabela):
                 
                 valorNF = valores[1]
                 data = valores[2]
-                nf = valores[4]
+                nf = valores[0]
                 destinatario = valores[5]
                 
                 cobrarDevedores(tabela, destinatario, data, nf, valorNF)
