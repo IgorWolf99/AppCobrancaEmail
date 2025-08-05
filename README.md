@@ -1,6 +1,6 @@
 # 🧾 App de Automação de Cobranças com Envio por E-mail
 
-Este é um aplicativo de automação de cobranças a partir de planilhas Excel ou CSV, desenvolvido especialmente para pequenos negócios e autônomos.
+Este é um aplicativo de automação de cobranças a partir de planilhas Excel, desenvolvido especialmente para pequenos negócios e autônomos.
 
    Com uma interface gráfica simples e intuitiva criada em Tkinter, o sistema permite:
 
@@ -115,6 +115,7 @@ Essa configuração é necessária para que o aplicativo consiga enviar e-mails 
 
 ## 🔐 Segurança
 
+Mesmo sendo para uso de um único usuário no próprio computador, decidi aplicar uma camada básica de segurança.
 A autenticação é feita por senha, protegida via **hash SHA-256 com salt fixo**. Não é necessário banco de dados.
 
 ---
